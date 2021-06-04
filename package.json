@@ -1,0 +1,52 @@
+{
+  "name": "feed-notifier",
+  "version": "0.0.1",
+  "description": "Node.js script for monitoring Atom / RSS feeds and posting new links to Twitter / Mastodon",
+  "main": "dist/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "jest",
+    "clearTestCache": "jest --clearCache",
+    "clean": "rimraf dist/*",
+    "lint": "eslint . --ext .ts",
+    "compile": "tsc --project tsconfig.json",
+    "build": "npm run lint && npm run test && npm run clean && npm run compile",
+    "dev": "tsc -w --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwojcik/feed-notifier.git"
+  },
+  "keywords": [
+    "RSS",
+    "Atom",
+    "Twitter",
+    "Mastodon",
+    "automatic",
+    "notify",
+    "post"
+  ],
+  "author": "Łukasz Wójcik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lwojcik/feed-notifier/issues"
+  },
+  "homepage": "https://github.com/lwojcik/feed-notifier#readme",
+  "dependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-jest": "^24.3.6",
+    "jest": "^27.0.4",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.3.2"
+  }
+}
