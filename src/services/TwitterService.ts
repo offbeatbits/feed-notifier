@@ -1,11 +1,14 @@
-import { OAuthService } from '../models';
+import { OAuth2Service } from '../models';
 import { TwitterServiceSettings } from '../types';
 
-export class TwitterService extends OAuthService {
+export class TwitterService extends OAuth2Service {
   username: string;
 
-  constructor(settings: TwitterServiceSettings) {
-    super(settings.client);
-    this.username = settings.username;
+  constructor({
+    username,
+    client,
+  }: TwitterServiceSettings) {
+    super(client);
+    this.username = username;
   }
 }

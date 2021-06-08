@@ -1,14 +1,18 @@
-import { OAuthService } from '../models';
+import { OAuth2Service } from '../models';
 import { MastodonServiceSettings } from '../types';
 
-export class MastodonService extends OAuthService {
+export class MastodonService extends OAuth2Service {
   username: string;
 
   host: string;
 
-  constructor(settings: MastodonServiceSettings) {
-    super(settings.client);
-    this.username = settings.username;
-    this.host = settings.host;
+  constructor({
+    username,
+    host,
+    client,
+  }: MastodonServiceSettings) {
+    super(client);
+    this.username = username;
+    this.host = host;
   }
 }

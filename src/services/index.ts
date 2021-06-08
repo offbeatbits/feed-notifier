@@ -1,2 +1,2 @@
-export { MastodonService } from './MastodonService';
-export { TwitterService } from './TwitterService';
+export * from './MastodonService';
+export * from './TwitterService';

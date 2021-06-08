@@ -1,4 +1,4 @@
-import { update } from './update';
+import { updateAllChannels as update } from './update';
 
 export {
   update,

@@ -1,3 +1,3 @@
-export { Channel } from './Channel';
-export { Feed } from './Feed';
-export { OAuthService } from './OAuthService';
+export * from './Channel';
+export * from './Feed';
+export * from './OAuth2Service';
