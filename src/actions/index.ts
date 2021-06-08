@@ -1,4 +1,4 @@
-import { update } from '../utils';
+import { update } from './update';
 
 export {
   update,
