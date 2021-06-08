@@ -2,7 +2,7 @@ import {
   channels,
   clients,
 } from '../config';
-import { getChannelArray } from '../helpers';
+import { getChannelConfigArray } from '../helpers';
 import { ChannelConfigRecord } from '../types';
 
 /* eslint-disable no-console */
@@ -13,6 +13,6 @@ const updateSingleChannel = (channelConfig: ChannelConfigRecord) => {
 };
 
 export const updateAllChannels = () => {
-  const channelsToUpdate = getChannelArray(channels, clients);
+  const channelsToUpdate = getChannelConfigArray(channels, clients);
   channelsToUpdate.forEach(channel => updateSingleChannel(channel));
 };

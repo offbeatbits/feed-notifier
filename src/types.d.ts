@@ -31,8 +31,9 @@ export type ServiceSettings = TwitterServiceSettings | MastodonServiceSettings;
 
 export type ServiceClassSettings =
   Record<ChannelName, ServiceSettings>;
-export interface ChannelConfigRecord {
+
+export type ChannelConfigRecord = {
   type: ChannelName;
-}
+} & ChannelSettings & OAuth2ServiceSettings;
 
 export type ChannelConfigArray = Array<ChannelConfigRecord>;
