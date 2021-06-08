@@ -11,4 +11,8 @@ export class TwitterService extends OAuth2Service {
     super(client);
     this.username = username;
   }
+
+  // authorize
+
+  // post
 }

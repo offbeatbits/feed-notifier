@@ -15,4 +15,8 @@ export class MastodonService extends OAuth2Service {
     this.username = username;
     this.host = host;
   }
+
+  // authorize
+
+  // post
 }
