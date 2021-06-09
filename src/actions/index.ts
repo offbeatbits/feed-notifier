@@ -1,5 +1,1 @@
-import { updateAllChannels as update } from './update';
-
-export {
-  update,
-};
+export * from './triggerUpdate';

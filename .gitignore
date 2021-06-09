@@ -59,4 +59,6 @@ docs/
 # WebStormIDE
 .idea
 
+_cache/
+
 package-lock.json
