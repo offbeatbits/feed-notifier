@@ -1,3 +1,4 @@
+import { logger } from '../lib';
 import {
   channels,
   clients,
@@ -8,9 +9,13 @@ import {
 } from './update';
 
 export const triggerUpdate = () => {
-  updateAllChannels(
+  const content = 'foo';
+  logger.info('Updating all channels...');
+  updateAllChannels({
     channels,
     clients,
-    updateSingleChannel,
-  );
+    updateFn: updateSingleChannel,
+    content,
+  });
+  logger.info('Update complete!');
 };

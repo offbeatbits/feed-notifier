@@ -11,13 +11,20 @@ import {
 //   logger,
 // } from '../../lib';
 
-export const updateAllChannels = (
+interface UpdateAllChannelsArgs {
   channels: ChannelConfig<ChannelSettings>,
   clients: ChannelConfig<OAuth2ServiceSettings>,
-  updateFn: (channel: ChannelConfigRecord) => void,
-) => {
-  // logger.info('Updating all channels...');
+  updateFn: (channel: ChannelConfigRecord, content: string) => void,
+  content: string,
+}
+
+export const updateAllChannels = ({
+  channels,
+  clients,
+  updateFn,
+  content,
+}: UpdateAllChannelsArgs) => {
   const channelsToUpdate = getChannelConfigArray(channels, clients);
-  channelsToUpdate.forEach(updateFn);
+  channelsToUpdate.forEach(channel => updateFn(channel, content));
   // logger.info('Update complete!');
 };
