@@ -7,10 +7,14 @@ export class OAuth2Service {
 
   accessToken: string;
 
-  constructor(settings: OAuth2ServiceSettings) {
-    this.key = settings.key;
-    this.secret = settings.secret;
-    this.accessToken = settings.accessToken || '';
+  constructor({
+    key,
+    secret,
+    accessToken,
+  }: OAuth2ServiceSettings) {
+    this.key = key;
+    this.secret = secret;
+    this.accessToken = accessToken || '';
   }
 
   // authorize

@@ -2,14 +2,19 @@ import {
   channels,
   clients,
 } from '../config';
-import { getChannelConfigArray } from '../helpers';
+import {
+  createService,
+  getChannelConfigArray,
+} from '../helpers';
 import { ChannelConfigRecord } from '../types';
 
 /* eslint-disable no-console */
 
-const updateSingleChannel = (channelConfig: ChannelConfigRecord) => {
-  console.log(`updating channel: ${channelConfig.type}...`);
-  console.log(channelConfig);
+const updateSingleChannel = ({ type, settings }: ChannelConfigRecord) => {
+  console.log(`updating channel: ${type}...`);
+  const service = createService(type, settings);
+  console.log(service);
+  (service as any).testMethod();
 };
 
 export const updateAllChannels = () => {

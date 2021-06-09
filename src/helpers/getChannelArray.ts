@@ -11,6 +11,8 @@ export const getChannelConfigArray = (
   clients: ChannelConfig<OAuth2ServiceSettings>,
 ) => (Object.keys(channels) as Array<ChannelName>).map(channelKey => ({
   type: channelKey,
-  ...channels[channelKey],
-  ...clients[channelKey],
+  settings: {
+    ...channels[channelKey],
+    client: clients[channelKey],
+  },
 })) as ChannelConfigArray;

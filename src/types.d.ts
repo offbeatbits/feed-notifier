@@ -16,7 +16,7 @@ export interface MastodonSettings {
 export type ChannelSettings = TwitterSettings | MastodonSettings;
 
 export interface ClientSettings {
-  client: OAuth2ServiceSettings;
+  settings: OAuth2ServiceSettings;
 }
 
 export type ChannelName = 'twitter' | 'mastodon';
@@ -30,10 +30,13 @@ export interface MastodonServiceSettings extends MastodonSettings, ClientSetting
 export type ServiceSettings = TwitterServiceSettings | MastodonServiceSettings;
 
 export type ServiceClassSettings =
-  Record<ChannelName, ServiceSettings>;
+  ChannelSettings & {
+    client: OAuth2ServiceSettings
+  };
 
 export type ChannelConfigRecord = {
   type: ChannelName;
-} & ChannelSettings & OAuth2ServiceSettings;
+  settings: ServiceClassSettings;
+};
 
 export type ChannelConfigArray = Array<ChannelConfigRecord>;
