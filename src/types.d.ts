@@ -2,13 +2,17 @@ export interface OAuth2ServiceSettings {
   key: string;
   secret: string;
   accessToken?: string;
+  accessTokenSecret?: string;
 }
 
-export interface TwitterSettings {
+export interface CommonServiceSettings {
+  enabled: boolean;
+}
+export interface TwitterSettings extends CommonServiceSettings {
   username: string;
 }
 
-export interface MastodonSettings {
+export interface MastodonSettings extends CommonServiceSettings {
   username: string;
   host: string;
 }

@@ -20,3 +20,5 @@ export const createService = (
     host: (settings as MastodonSettings).host,
     settings: settings.client,
   }) as ServiceInstance;
+
+// oof :(

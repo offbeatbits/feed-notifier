@@ -1,3 +1,7 @@
 import { config } from 'dotenv';
 
-if (process.env.NODE_ENV !== 'production') config();
+const env = () => {
+  if (process.env.NODE_ENV !== 'production') config();
+};
+
+env();

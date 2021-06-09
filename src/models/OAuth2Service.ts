@@ -1,23 +1,27 @@
 import { OAuth2ServiceSettings } from '../types';
 
-export class OAuth2Service {
+export abstract class OAuth2Service {
   key: string;
 
   secret: string;
 
-  accessToken: string;
+  accessToken: string | undefined;
+
+  accessTokenSecret: string | undefined;
 
   constructor({
     key,
     secret,
     accessToken,
+    accessTokenSecret,
   }: OAuth2ServiceSettings) {
     this.key = key;
     this.secret = secret;
-    this.accessToken = accessToken || '';
+    this.accessToken = accessToken;
+    this.accessTokenSecret = accessTokenSecret;
   }
 
-  // authorize
+  abstract authorize(): void;
 
-  // post
+  abstract post(content: string): void;
 }

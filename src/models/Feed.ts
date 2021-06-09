@@ -1,11 +1,15 @@
 export class Feed {
   url: string;
 
+  // private content: any;
+
   constructor(url: string) {
     this.url = url;
   }
 
-  // getFeedContent
+  // fetchContent
+
+  // getContent
 
   // getLatestEntry
 
