@@ -17,6 +17,7 @@ import {
   getLatestArticle,
   compareArticles,
   generatePostContent,
+  updateArticleCache,
 } from '../helpers';
 
 export const triggerUpdate = async () => {
@@ -58,6 +59,8 @@ export const triggerUpdate = async () => {
   });
 
   logger.verbose('Updating article cache...');
+
+  updateArticleCache(latestArticle);
 
   logger.verbose('Update done!');
 };
