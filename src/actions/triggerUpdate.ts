@@ -1,42 +1,80 @@
 import { logger } from '../lib';
 
-import {
-  channels,
-  clients,
-  feedUrl,
-} from '../config';
+// import {
+//   channels,
+//   clients,
+//   // feedUrl,
+// } from '../config';
+
+// import {
+//   updateAllChannels,
+//   updateSingleChannel,
+// } from './update';
 
 import {
-  updateAllChannels,
-  updateSingleChannel,
-} from './update';
+  isItForcedUpdate,
+  getCachedArticle,
+} from '../helpers';
 
-import {
-  fetch as fetchFeed,
-} from './feed';
+// import {
+//   fetch as fetchFeed,
+// } from './feed';
 
 export const triggerUpdate = async () => {
-  const content = 'foo';
-  logger.verbose(`Found channel feed URL: ${feedUrl}`);
+  const isForcedUpdate = isItForcedUpdate();
+  const cachedArticle = getCachedArticle();
+  console.log(cachedArticle); // eslint-disable-line
 
-  logger.verbose('Fetching feed...');
+  if (!cachedArticle && !isForcedUpdate) {
+    logger.verbose('Article cache is empty, exiting...');
+    process.exit();
+  }
 
-  const feed = await fetchFeed(feedUrl);
+  logger.verbose('Posting new article despite empty cache');
 
-  console.log(feed.getFeedUpdateDate()); // eslint-disable-line
-  console.log(feed.getLatestPostDate()); // eslint-disable-line
-  console.log(feed.getLatestPostTitle()); // eslint-disable-line
-  console.log(feed.getLatestPostUrl()); // eslint-disable-line
-  console.log(feed.getLatestPostId()); // eslint-disable-line
+  // const latestArticle = getLatestArticle();
+  // const isUpdateNeeded = compareArticles(latestArticle, cachedArticle);
 
-  logger.info('Updating all channels...');
+  // if (!isUpdateNeeded) process.exit();
 
-  updateAllChannels({
-    channels,
-    clients,
-    updateFn: updateSingleChannel,
-    content,
-  });
+  // logger.info('New article detected - posting a link');
 
-  logger.info('Update complete!');
+  // const { title, url } = latestArticle;
+  // const content = `${title} ${url}`;
+
+  // updateAllChannels({
+  //   channels,
+  //   clients,
+  //   updateFn: updateSingleChannel,
+  //   content,
+  // });
+
+  // logger.info('Update complete!');
+
+  // Up
+
+  // else:
+
+  // get latest article metadata
+
+  // if its the same - exit
+
+  // else: - update
+
+  // save new article state in cache
+
+  // const content = 'foo';
+  // logger.verbose(`Found channel feed URL: ${feedUrl}`);
+
+  // logger.verbose('Fetching feed...');
+
+  // const feed = await fetchFeed(feedUrl);
+
+  // console.log(feed.getFeedUpdateDate()); // eslint-disable-line
+  // console.log(feed.getLatestPostDate()); // eslint-disable-line
+  // console.log(feed.getLatestPostTitle()); // eslint-disable-line
+  // console.log(feed.getLatestPostUrl()); // eslint-disable-line
+  // console.log(feed.getLatestPostId()); // eslint-disable-line
+
+  // logger.info('Updating all channels...');
 };

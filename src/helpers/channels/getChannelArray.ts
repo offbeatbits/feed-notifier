@@ -4,7 +4,7 @@ import {
   OAuth2ServiceSettings,
   ChannelSettings,
   ChannelConfigArray,
-} from '../types';
+} from '../../types';
 
 export const getChannelConfigArray = (
   channels: ChannelConfig<ChannelSettings>,

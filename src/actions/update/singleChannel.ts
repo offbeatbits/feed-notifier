@@ -1,5 +1,5 @@
 import { logger } from '../../lib';
-import { createService } from '../../helpers';
+import { createService } from '../../helpers/services';
 import { ChannelConfigRecord } from '../../types';
 
 export const updateSingleChannel = (
@@ -7,6 +7,7 @@ export const updateSingleChannel = (
   content: string,
 ) => {
   logger.info(`Updating channel '${type}'...`);
+
   if (settings.enabled) {
     const service = createService(type, settings);
     (service as any).testMethod();
