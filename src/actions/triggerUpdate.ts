@@ -63,4 +63,6 @@ export const triggerUpdate = async () => {
   updateArticleCache(latestArticle);
 
   logger.verbose('Update done!');
+
+  process.exit();
 };

@@ -6,6 +6,7 @@ interface FeedItem {
   link: string;
   id: string;
 }
+
 interface FeedContent {
   lastBuildDate: string;
   items: Array<FeedItem>;
@@ -26,22 +27,30 @@ export class Feed {
         feed: ['lastBuildDate'],
       },
     }).parseURL(this.url) as FeedContent;
-    return this;
+    return this as Feed;
+  }
+
+  private getFeed() {
+    return this.content!;
+  }
+
+  private getLatestItem() {
+    return this.getFeed().items[0] as FeedItem;
   }
 
   getFeedUpdateDate() {
-    return this.content!.lastBuildDate;
+    return this.getFeed().lastBuildDate;
   }
 
   getLatestPostDate() {
-    return this.content!.items[0].pubDate;
+    return this.getLatestItem().pubDate;
   }
 
   getLatestPostTitle() {
-    return this.content!.items[0].title;
+    return this.getLatestItem().title;
   }
 
   getLatestPostUrl() {
-    return this.content!.items[0].link;
+    return this.getLatestItem().link;
   }
 }
