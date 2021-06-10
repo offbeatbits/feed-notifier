@@ -43,4 +43,11 @@ export type ChannelConfigRecord = {
   settings: ServiceClassSettings;
 };
 
+export interface ArticleObject {
+  feedUpdateDate: string;
+  date: string;
+  title: string;
+  url: string;
+}
+
 export type ChannelConfigArray = Array<ChannelConfigRecord>;

@@ -1,80 +1,63 @@
 import { logger } from '../lib';
 
-// import {
-//   channels,
-//   clients,
-//   // feedUrl,
-// } from '../config';
+import {
+  channels,
+  clients,
+  feedUrl,
+} from '../config';
 
-// import {
-//   updateAllChannels,
-//   updateSingleChannel,
-// } from './update';
+import {
+  updateAllChannels,
+  updateSingleChannel,
+} from './update';
 
 import {
   isItForcedUpdate,
   getCachedArticle,
+  getLatestArticle,
+  compareArticles,
+  generatePostContent,
 } from '../helpers';
-
-// import {
-//   fetch as fetchFeed,
-// } from './feed';
 
 export const triggerUpdate = async () => {
   const isForcedUpdate = isItForcedUpdate();
   const cachedArticle = getCachedArticle();
-  console.log(cachedArticle); // eslint-disable-line
+
+  if (!cachedArticle) logger.verbose('Article cache is empty!');
 
   if (!cachedArticle && !isForcedUpdate) {
-    logger.verbose('Article cache is empty, exiting...');
+    logger.verbose("Exiting (pass '--skipCache' to force an update)");
+    process.exit();
+  } else if (isForcedUpdate) {
+    logger.verbose('Proceeding despite empty cache...');
+  }
+
+  const latestArticle = await getLatestArticle(feedUrl);
+
+  const isUpdateNeeded = compareArticles({
+    oldArticle: cachedArticle,
+    newArticle: latestArticle,
+  });
+
+  if (!isUpdateNeeded) {
+    logger.verbose('Update not needed, exiting!');
     process.exit();
   }
 
-  logger.verbose('Posting new article despite empty cache');
+  logger.verbose('New article detected - generating update content...');
 
-  // const latestArticle = getLatestArticle();
-  // const isUpdateNeeded = compareArticles(latestArticle, cachedArticle);
+  const content = generatePostContent(latestArticle!);
 
-  // if (!isUpdateNeeded) process.exit();
+  logger.verbose('Posting on channels...');
 
-  // logger.info('New article detected - posting a link');
+  updateAllChannels({
+    channels,
+    clients,
+    updateFn: updateSingleChannel,
+    content,
+  });
 
-  // const { title, url } = latestArticle;
-  // const content = `${title} ${url}`;
+  logger.verbose('Updating article cache...');
 
-  // updateAllChannels({
-  //   channels,
-  //   clients,
-  //   updateFn: updateSingleChannel,
-  //   content,
-  // });
-
-  // logger.info('Update complete!');
-
-  // Up
-
-  // else:
-
-  // get latest article metadata
-
-  // if its the same - exit
-
-  // else: - update
-
-  // save new article state in cache
-
-  // const content = 'foo';
-  // logger.verbose(`Found channel feed URL: ${feedUrl}`);
-
-  // logger.verbose('Fetching feed...');
-
-  // const feed = await fetchFeed(feedUrl);
-
-  // console.log(feed.getFeedUpdateDate()); // eslint-disable-line
-  // console.log(feed.getLatestPostDate()); // eslint-disable-line
-  // console.log(feed.getLatestPostTitle()); // eslint-disable-line
-  // console.log(feed.getLatestPostUrl()); // eslint-disable-line
-  // console.log(feed.getLatestPostId()); // eslint-disable-line
-
-  // logger.info('Updating all channels...');
+  logger.verbose('Update done!');
 };

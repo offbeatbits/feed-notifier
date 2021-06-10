@@ -29,10 +29,6 @@ export class Feed {
     return this;
   }
 
-  getFullContent() {
-    return this.content;
-  }
-
   getFeedUpdateDate() {
     return this.content!.lastBuildDate;
   }
@@ -47,9 +43,5 @@ export class Feed {
 
   getLatestPostUrl() {
     return this.content!.items[0].link;
-  }
-
-  getLatestPostId() {
-    return this.content!.items[0].id;
   }
 }

@@ -1,6 +1,19 @@
 import { logger } from '../../lib/logger';
+// import { cache } from '../../lib/cache';
 
 export const getCachedArticle = () => {
-  logger.verbose('Getting cached article');
-  return null;
+  logger.verbose('Getting cached article...');
+  const article = {
+    feedUpdateDate: '1',
+    date: '1',
+    title: 'a',
+    url: 'https//dishonest-review/',
+  };
+
+  logger.verbose(`Cached feed update date: ${article.feedUpdateDate}`);
+  logger.verbose(`Cached article date: ${article.date}`);
+  logger.verbose(`Cached article title: ${article.title}`);
+  logger.verbose(`Cached article URL: ${article.url}`);
+
+  return article;
 };
