@@ -1,3 +1,4 @@
+import { ArticleObject } from '../types';
 import { logger } from '../lib';
 
 import {
@@ -20,9 +21,8 @@ import {
   updateArticleCache,
 } from '../helpers';
 
-export const triggerUpdate = async () => {
+const determineInitialAppState = (cachedArticle: ArticleObject) => {
   const isForcedUpdate = isItForcedUpdate();
-  const cachedArticle = getCachedArticle();
 
   if (!cachedArticle) logger.verbose('Article cache is empty!');
 
@@ -32,23 +32,26 @@ export const triggerUpdate = async () => {
   } else if (isForcedUpdate) {
     logger.verbose('Proceeding despite empty cache...');
   }
+};
 
-  const latestArticle = await getLatestArticle(feedUrl);
-
+const determineUpdateState = (oldArticle: ArticleObject, newArticle: ArticleObject | null) => {
   const isUpdateNeeded = compareArticles({
-    oldArticle: cachedArticle,
-    newArticle: latestArticle,
+    oldArticle,
+    newArticle,
   });
 
   if (!isUpdateNeeded) {
     logger.verbose('Update not needed, exiting!');
     process.exit();
   }
+};
 
+const prepareUpdate = (latestArticle: ArticleObject) => {
   logger.verbose('New article detected - generating update content...');
+  return generatePostContent(latestArticle);
+};
 
-  const content = generatePostContent(latestArticle!);
-
+const postTheUpdate = (content: string) => {
   logger.verbose('Posting on channels...');
 
   updateAllChannels({
@@ -57,12 +60,33 @@ export const triggerUpdate = async () => {
     updateFn: updateSingleChannel,
     content,
   });
+};
 
+const updateCache = (latestArticle: ArticleObject) => {
   logger.verbose('Updating article cache...');
 
-  updateArticleCache(latestArticle);
+  return updateArticleCache(latestArticle);
+};
 
+const finishUpdate = () => {
   logger.verbose('Update done!');
-
   process.exit();
+};
+
+export const triggerUpdate = async () => {
+  const cachedArticle = getCachedArticle();
+
+  determineInitialAppState(cachedArticle);
+
+  const latestArticle = await getLatestArticle(feedUrl);
+
+  determineUpdateState(cachedArticle, latestArticle);
+
+  const content = prepareUpdate(latestArticle!);
+
+  postTheUpdate(content);
+
+  updateCache(latestArticle!);
+
+  finishUpdate();
 };
