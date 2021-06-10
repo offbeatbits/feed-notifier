@@ -1,14 +1,19 @@
 import { logger } from '../lib';
+
 import {
   channels,
   clients,
   feedUrl,
 } from '../config';
+
 import {
   updateAllChannels,
   updateSingleChannel,
 } from './update';
-import { Feed } from '../models';
+
+import {
+  fetch as fetchFeed,
+} from './feed';
 
 export const triggerUpdate = async () => {
   const content = 'foo';
@@ -16,8 +21,9 @@ export const triggerUpdate = async () => {
 
   logger.verbose('Fetching feed...');
 
-  const feed = await new Feed(feedUrl).fetch();
+  const feed = await fetchFeed(feedUrl);
 
+  console.log(feed.getFeedUpdateDate()); // eslint-disable-line
   console.log(feed.getLatestPostDate()); // eslint-disable-line
   console.log(feed.getLatestPostTitle()); // eslint-disable-line
   console.log(feed.getLatestPostUrl()); // eslint-disable-line
