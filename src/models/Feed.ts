@@ -1,21 +1,32 @@
+import Parser from 'rss-parser';
+
 export class Feed {
   url: string;
 
-  // private content: any;
+  private content: any;
 
   constructor(url: string) {
     this.url = url;
   }
 
-  // fetchContent
+  async fetch() {
+    this.content = await new Parser().parseURL(this.url);
+    return this;
+  }
 
-  // getContent
+  getLatestPostDate() {
+    return this.content.items[0].pubDate;
+  }
 
-  // getLatestEntry
+  getLatestPostTitle() {
+    return this.content.items[0].title;
+  }
 
-  // getLatestEntryUrl
+  getLatestPostUrl() {
+    return this.content.items[0].link;
+  }
 
-  // getLatestEntryDate
-
-  // getLatestEntryTitle
+  getLatestPostId() {
+    return this.content.items[0].id;
+  }
 }

@@ -29,8 +29,5 @@
     "dist",
     "tests",
     "**/tests/*.test.ts"
-  ],
-  "paths": {
-    "*": ["src/*"]
-  }
+  ]
 }
