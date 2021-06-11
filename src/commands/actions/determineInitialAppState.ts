@@ -2,7 +2,7 @@ import { ArticleObject } from '../../types';
 import { logger } from '../../lib';
 import { isItForcedUpdate } from '../../helpers';
 
-export const determineInitialAppState = (cachedArticle: ArticleObject) => {
+export const determineInitialAppState = (cachedArticle: ArticleObject | null) => {
   const isForcedUpdate = isItForcedUpdate();
 
   if (!cachedArticle) logger.verbose('Article cache is empty!');

@@ -24,12 +24,19 @@ const compareDates = (
 interface ArticlesToCompare {
   oldArticle: ArticleObject | null | undefined;
   newArticle: ArticleObject | null | undefined;
+  skip?: boolean;
 }
 
 export const compareArticles = ({
   oldArticle,
   newArticle,
+  skip,
 }: ArticlesToCompare) => {
+  if (skip) {
+    logger.verbose("Skipping article comparison due to 'skipCache' flag...");
+    return true;
+  }
+
   logger.verbose('Comparing articles...');
 
   const titleIsDifferent = compareStrings(

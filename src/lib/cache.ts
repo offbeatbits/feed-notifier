@@ -27,8 +27,13 @@ const saveToFile = ({
   fs.writeFileSync(filePath, content);
 };
 
-const getFileContents = (filePath: string) =>
-  fs.readFileSync(filePath);
+const getFileContents = (filePath: string) => {
+  try {
+    return Buffer.from(fs.readFileSync(filePath)).toString();
+  } catch {
+    return '';
+  }
+};
 
 export const cache = {
   get: (name: string) => {
