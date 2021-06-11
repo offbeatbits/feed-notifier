@@ -1,4 +1,4 @@
 import './lib/env';
-import { triggerUpdate } from './commands';
+import { start } from './commands';
 
-triggerUpdate();
+start();
