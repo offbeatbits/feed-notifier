@@ -32,11 +32,11 @@ const getFileContents = (filePath: string) =>
 
 export const cache = {
   get: (name: string) => {
-    console.log(`getting cached value for ${name}...`); // eslint-disable-line
+    logger.verbose(`Getting cached value for ${name}...`);
     return getFileContents(path.join(cacheDirectory, name));
   },
   set: (name: string, value: object) => {
-    logger.verbose(`Saving new article to ${path.join(cacheDirectory, name)}...`); // eslint-disable-line
+    logger.verbose(`Saving new value to ${path.join(cacheDirectory, name)}...`); // eslint-disable-line
     saveToFile({
       directory: cacheDirectory,
       file: name,
