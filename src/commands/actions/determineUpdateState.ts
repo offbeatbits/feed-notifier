@@ -9,10 +9,12 @@ export const determineUpdateState = (
   oldArticle: ArticleObject | null,
   newArticle: ArticleObject | null,
 ) => {
+  const skip = isItForcedUpdate();
+
   const isUpdateNeeded = compareArticles({
     oldArticle,
     newArticle,
-    skip: isItForcedUpdate(),
+    skip,
   });
 
   if (!isUpdateNeeded) {

@@ -7,6 +7,7 @@ import {
 import {
   getCachedArticle,
   getLatestArticle,
+  isItInitialization,
 } from '../helpers';
 
 import {
@@ -20,22 +21,27 @@ import {
 
 export const start = async () => {
   const cachedArticle = getCachedArticle();
+  const isInitialization = isItInitialization();
+  const latestArticle = await getLatestArticle(feedUrl);
 
   determineInitialAppState(cachedArticle);
 
-  const latestArticle = await getLatestArticle(feedUrl);
+  if (isInitialization) {
+    updateCache(latestArticle);
+    finishUpdate(isInitialization);
+  } else {
+    determineUpdateState(cachedArticle, latestArticle);
 
-  determineUpdateState(cachedArticle, latestArticle);
+    const content = prepareUpdate(latestArticle!);
 
-  const content = prepareUpdate(latestArticle!);
+    postTheUpdate({
+      channels,
+      clients,
+      content,
+    });
 
-  postTheUpdate({
-    channels,
-    clients,
-    content,
-  });
+    updateCache(latestArticle);
 
-  updateCache(latestArticle);
-
-  finishUpdate();
+    finishUpdate();
+  }
 };

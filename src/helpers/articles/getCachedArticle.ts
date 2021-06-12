@@ -1,11 +1,12 @@
 import { logger } from '../../lib/logger';
 import { cache } from '../../lib/cache';
+import { app } from '../../config';
 
 import { ArticleObject } from '../../types';
 
 export const getCachedArticle = () => {
   logger.verbose('Getting cached article...');
-  const article = cache.get('article');
+  const article = cache.get(app.cacheKey);
 
   if (article) {
     const parsedArticle = JSON.parse(article) as ArticleObject;
