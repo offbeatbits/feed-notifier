@@ -4,8 +4,6 @@ import generator, {
 import { OAuth2Service } from '../models';
 import { MastodonServiceSettings } from '../types';
 
-/* eslint-disable class-methods-use-this */
-
 export class MastodonService extends OAuth2Service {
   username: string;
 
