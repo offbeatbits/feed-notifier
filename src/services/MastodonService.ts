@@ -1,6 +1,6 @@
-// import generator, {
-//   MegalodonInterface,
-// } from 'megalodon';
+import generator, {
+  MegalodonInterface,
+} from 'megalodon';
 import { OAuth2Service } from '../models';
 import { MastodonServiceSettings } from '../types';
 
@@ -11,7 +11,7 @@ export class MastodonService extends OAuth2Service {
 
   host: string;
 
-  // private mastodonClient: MegalodonInterface;
+  private mastodonClient: MegalodonInterface;
 
   constructor({
     username,
@@ -21,25 +21,15 @@ export class MastodonService extends OAuth2Service {
     super(settings);
     this.username = username;
     this.host = host;
-    // this.mastodonClient = generator(
-    //   'mastodon',
-    //   this.host,
-    //   this.accessToken,
-    // );
-  }
-
-  testMethod() {
-    console.log('test method from MastodonService!'); // eslint-disable-line
-  }
-
-  authorize() {
-    console.log(`authorizing...`); // eslint-disable-line
-
+    this.mastodonClient = generator(
+      'mastodon',
+      this.host,
+      this.accessToken,
+    );
   }
 
   async post(content: string) {
-    console.log(`tooting ${content}...`); // eslint-disable-line
-    // const response = await this.mastodonClient.postStatus(content);
-    // return response;
+    const response = await this.mastodonClient.postStatus(content);
+    return response.data.uri;
   }
 }

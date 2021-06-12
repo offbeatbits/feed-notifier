@@ -6,5 +6,4 @@ export const finishUpdate = (initialize?: boolean) => {
   } else {
     logger.verbose('Update done!');
   }
-  process.exit();
 };

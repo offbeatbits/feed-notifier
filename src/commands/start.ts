@@ -34,7 +34,7 @@ export const start = async () => {
 
     const content = prepareUpdate(latestArticle!);
 
-    postTheUpdate({
+    await postTheUpdate({
       channels,
       clients,
       content,

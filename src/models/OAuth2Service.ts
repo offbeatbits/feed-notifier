@@ -21,7 +21,5 @@ export abstract class OAuth2Service {
     this.accessTokenSecret = accessTokenSecret;
   }
 
-  abstract authorize(): void;
-
   abstract post(content: string): void;
 }

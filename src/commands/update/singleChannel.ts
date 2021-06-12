@@ -2,7 +2,7 @@ import { logger } from '../../lib';
 import { createService } from '../../helpers/services';
 import { ChannelConfigRecord } from '../../types';
 
-export const updateSingleChannel = (
+export const updateSingleChannel = async (
   { type, settings }: ChannelConfigRecord,
   content: string,
 ) => {
@@ -10,8 +10,9 @@ export const updateSingleChannel = (
 
   if (settings.enabled) {
     const service = createService(type, settings);
-    (service as any).testMethod();
-    logger.verbose(`Got content: ${content}`);
+    logger.verbose(`Posting content: ${content}`);
+    const statusURL = await (service as any).post(content);
+    logger.info(`Status URL: ${statusURL}`);
     logger.info(`Channel '${type}' updated!`);
   } else {
     logger.info(`Channel '${type}' disabled. Skipping...`);
