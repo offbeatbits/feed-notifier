@@ -9,7 +9,7 @@ import {
   MastodonSettings,
 } from '../../types';
 
-type ServiceInstance = typeof TwitterService | typeof MastodonService;
+type ServiceInstance = TwitterService | MastodonService;
 
 export const createService = (
   type: ChannelName,

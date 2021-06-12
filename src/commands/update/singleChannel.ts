@@ -11,7 +11,7 @@ export const updateSingleChannel = async (
   if (settings.enabled) {
     const service = createService(type, settings);
     logger.verbose(`Posting content: ${content}`);
-    const statusURL = await (service as any).post(content);
+    const statusURL = await service.post(content);
     logger.info(`Status URL: ${statusURL}`);
     logger.info(`Channel '${type}' updated!`);
   } else {
