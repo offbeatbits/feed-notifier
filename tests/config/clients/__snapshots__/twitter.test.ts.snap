@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Twitter client config should export Twitter config 1`] = `
+Object {
+  "twitter": Object {
+    "accessToken": "test_twitter_access_token",
+    "accessTokenSecret": "test_twitter_access_token_secret",
+    "key": "test_twitter_client_key",
+    "secret": "test_twitter_client_secret",
+  },
+}
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feed config should export feed config 1`] = `
+Object {
+  "feedUrl": "https://example.org/test_feed.xml",
+}
+`;

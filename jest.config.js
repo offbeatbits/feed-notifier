@@ -24,7 +24,8 @@ module.exports = {
     "!**/dist/**",
     "!**/src/types.d.ts"
   ],
-  "automock": false
+  "automock": false,
+  "setupFiles": ["./setupTests.js"],
   // "coverageThreshold": {
   //   "global": {
   //     "branches": 100,

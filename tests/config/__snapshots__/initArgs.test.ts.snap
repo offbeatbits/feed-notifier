@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Init args should export array of initialization arguments 1`] = `
+Array [
+  "-initialize",
+  "--initialize",
+]
+`;

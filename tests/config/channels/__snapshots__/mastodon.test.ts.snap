@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mastodon config should export Mastodon config 1`] = `
+Object {
+  "mastodon": Object {
+    "enabled": true,
+    "host": "https://mastodon.test.example.org",
+    "username": "test_account",
+  },
+}
+`;

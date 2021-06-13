@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mastodon client config should export Mastodon config 1`] = `
+Object {
+  "mastodon": Object {
+    "accessToken": "test_mastodon_access_token",
+    "key": "test_mastodon_client_key",
+    "secret": "test_mastodon_client_secret",
+  },
+}
+`;

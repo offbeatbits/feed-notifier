@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Twitter config should export Twitter config 1`] = `
+Object {
+  "twitter": Object {
+    "enabled": true,
+    "username": "test_account",
+  },
+}
+`;

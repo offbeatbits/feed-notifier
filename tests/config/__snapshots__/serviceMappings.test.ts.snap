@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Service mappings should map channels to services 1`] = `
+Object {
+  "mastodon": [Function],
+  "twitter": [Function],
+}
+`;

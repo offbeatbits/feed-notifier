@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cache should cache value 1`] = `"{\\"bar\\":\\"baz\\"}"`;
+
+exports[`Cache should not create cache directory if it exists 1`] = `"{\\"bar\\":\\"baz\\"}"`;

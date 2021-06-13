@@ -1,3 +1,4 @@
+import { logger } from '../lib';
 import {
   channels,
   clients,
@@ -30,7 +31,12 @@ export const start = async () => {
     updateCache(latestArticle);
     finishUpdate(isInitialization);
   } else {
-    determineUpdateState(cachedArticle, latestArticle);
+    const isUpdateNeeded = determineUpdateState(cachedArticle, latestArticle);
+
+    if (!isUpdateNeeded) {
+      logger.info('Exiting!');
+      process.exit();
+    }
 
     const content = prepareUpdate(latestArticle!);
 

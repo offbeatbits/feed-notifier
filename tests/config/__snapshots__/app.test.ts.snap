@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App config should export app config 1`] = `
+Object {
+  "cacheDirectory": "test_cache_directory",
+  "cacheKey": "article",
+  "enableLogging": false,
+  "enableVerboseLogging": false,
+}
+`;

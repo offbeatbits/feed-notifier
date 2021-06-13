@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Feed model should return feed update date 1`] = `"mocked_last_build_date"`;
-
-exports[`Feed model should return latest post URL 1`] = `"mocked_last_item_link"`;
-
-exports[`Feed model should return latest post date 1`] = `"mocked_last_item_pub_date"`;
-
-exports[`Feed model should return latest post title 1`] = `"mocked_last_item_title"`;

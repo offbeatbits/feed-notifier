@@ -4,10 +4,11 @@
   },
   "include": [
     "**/src/**/*.ts",
-    "**/tests/**/*.ts"
+    "**/tests/**/*.ts",
+    "setupTests.js"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
   ]
 }

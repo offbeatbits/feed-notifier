@@ -17,8 +17,6 @@ export const determineUpdateState = (
     skip,
   });
 
-  if (!isUpdateNeeded) {
-    logger.verbose('Update not needed, exiting!');
-    process.exit();
-  }
+  logger.info(`Update needed: ${isUpdateNeeded}`);
+  return isUpdateNeeded;
 };

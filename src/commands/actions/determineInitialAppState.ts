@@ -6,6 +6,7 @@ import {
 } from '../../helpers';
 
 export const determineInitialAppState = (cachedArticle: ArticleObject | null) => {
+  logger.info('Update process started!');
   const isForcedUpdate = isItForcedUpdate();
   const isInitialization = isItInitialization();
   if (!cachedArticle) logger.verbose('Article cache is empty!');

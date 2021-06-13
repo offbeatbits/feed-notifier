@@ -27,25 +27,21 @@ const saveToFile = ({
   fs.writeFileSync(filePath, content);
 };
 
-const getFileContents = (filePath: string) => {
-  try {
-    return Buffer.from(fs.readFileSync(filePath)).toString();
-  } catch {
-    return '';
-  }
-};
+const getFileContents = (filePath: string) =>
+  Buffer.from(fs.readFileSync(filePath)).toString() || '';
 
-export const cache = {
-  get: (name: string) => {
+export class Cache {
+  static get(name: string) {
     logger.verbose(`Getting cached value for ${name}...`);
     return getFileContents(path.join(cacheDirectory, name));
-  },
-  set: (name: string, value: object) => {
+  }
+
+  static set(name: string, value: object) {
     logger.verbose(`Saving new value to ${path.join(cacheDirectory, name)}...`); // eslint-disable-line
     saveToFile({
       directory: cacheDirectory,
       file: name,
       content: JSON.stringify(value),
     });
-  },
-};
+  }
+}

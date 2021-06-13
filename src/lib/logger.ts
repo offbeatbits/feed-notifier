@@ -8,12 +8,12 @@ const {
 } = app;
 
 export const logger = {
-  info: (content: any) => {
+  info: (content: string) => {
     if (enableLogging) {
       console.log(`[info] ${content}`); // eslint-disable-line
     }
   },
-  verbose: (content: any) => {
+  verbose: (content: string) => {
     if (enableVerboseLogging) {
       console.log(`[verbose] ${content}`); // eslint-disable-line
     }

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Force args should export array of force arguments 1`] = `
+Array [
+  "-skipCache",
+  "--skipCache",
+  "-skipcache",
+  "--skipcache",
+]
+`;
