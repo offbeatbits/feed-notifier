@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compareArticles should generate status post content for a given article 1`] = `"sample_title_1 sample_url_1"`;

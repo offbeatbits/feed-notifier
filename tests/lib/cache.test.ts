@@ -15,24 +15,40 @@ describe('Cache', () => {
   it('should cache value', () => {
     mockFs();
 
-    Cache.set('foo1', {
-      bar: 'baz',
-    });
-    expect(Cache.get('foo1')).toMatchSnapshot();
+    const key = 'foo1';
+
+    const value = {
+      bar1: 'baz1',
+    };
+
+    Cache.set(key, value);
+
+    expect(Cache.get(key)).toStrictEqual(JSON.stringify(value));
     mock.restore();
   });
 
   it('should not create cache directory if it exists', () => {
     const cacheDir = process.env.FN_CACHE_DIRECTORY!;
-    mock({
+    mockFs({
       [cacheDir]: {},
     });
 
-    Cache.set('foo2', {
-      bar: 'baz',
-    });
+    const key = 'foo2';
 
-    expect(Cache.get('foo2')).toMatchSnapshot();
+    const value = {
+      bar2: 'baz2',
+    };
+
+    Cache.set(key, value);
+
+    expect(Cache.get(key)).toStrictEqual(JSON.stringify(value));
+    mock.restore();
+  });
+
+  it('should return empty string if cache file is not present', () => {
+    mockFs();
+
+    expect(Cache.get('bar3')).toStrictEqual('');
     mock.restore();
   });
 });

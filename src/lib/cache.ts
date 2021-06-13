@@ -27,9 +27,13 @@ const saveToFile = ({
   fs.writeFileSync(filePath, content);
 };
 
-const getFileContents = (filePath: string) =>
-  Buffer.from(fs.readFileSync(filePath)).toString() || '';
-
+const getFileContents = (filePath: string) => {
+  try {
+    return Buffer.from(fs.readFileSync(filePath)).toString();
+  } catch {
+    return '';
+  }
+};
 export class Cache {
   static get(name: string) {
     logger.verbose(`Getting cached value for ${name}...`);

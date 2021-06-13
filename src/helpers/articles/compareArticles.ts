@@ -6,7 +6,7 @@ const compareStrings = (
   otherString: string | null | undefined,
 ) => {
   if (someString && otherString) {
-    return someString !== otherString;
+    return someString.localeCompare(otherString) === 0;
   }
   return false;
 };
@@ -21,6 +21,7 @@ const compareDates = (
   }
   return false;
 };
+
 interface ArticlesToCompare {
   oldArticle: ArticleObject | null | undefined;
   newArticle: ArticleObject | null | undefined;
