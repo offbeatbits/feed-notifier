@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchFeed should fetch feed 1`] = `
+Feed {
+  "content": Object {
+    "content": Object {
+      "lastBuildDate": "mocked_last_build_date",
+    },
+    "items": Array [
+      Object {
+        "link": "mocked_last_item_link",
+        "pubDate": "mocked_last_item_pub_date",
+        "title": "mocked_last_item_title",
+      },
+    ],
+    "lastBuildDate": "mocked_last_build_date",
+  },
+  "url": "sample_url",
+}
+`;
