@@ -5,7 +5,6 @@ import { ArticleObject } from '../../types';
 export const getLatestArticle = async (feedUrl: string) => {
   logger.verbose('Getting latest article...');
   try {
-    console.log(fetchFeed); // eslint-disable-line
     const feed = await fetchFeed(feedUrl);
 
     const article = {
