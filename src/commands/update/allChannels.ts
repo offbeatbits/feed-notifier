@@ -1,15 +1,10 @@
-import {
-  getChannelConfigArray,
-} from '../../helpers';
+import { getChannelConfigArray } from '../../helpers';
 import {
   ChannelConfig,
   ChannelSettings,
   OAuth2ServiceSettings,
   ChannelConfigRecord,
 } from '../../types';
-// import {
-//   logger,
-// } from '../../lib';
 
 interface UpdateAllChannelsArgs {
   channels: ChannelConfig<ChannelSettings>,
@@ -26,5 +21,4 @@ export const updateAllChannels = ({
 }: UpdateAllChannelsArgs) => {
   const channelsToUpdate = getChannelConfigArray(channels, clients);
   channelsToUpdate.forEach(channel => updateFn(channel, content));
-  // logger.info('Update complete!');
 };

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getChannelConfigArray should return channel config array 1`] = `
+Array [
+  Object {
+    "settings": Object {
+      "bar": "baz1",
+      "client": Object {
+        "bar": "baz1",
+        "foo": "bar1",
+      },
+      "foo": "bar1",
+    },
+    "type": "sampleChannel1",
+  },
+  Object {
+    "settings": Object {
+      "bar": "baz2",
+      "client": Object {
+        "bar": "baz2",
+        "foo": "bar2",
+      },
+      "foo": "bar2",
+    },
+    "type": "sampleChannel2",
+  },
+]
+`;

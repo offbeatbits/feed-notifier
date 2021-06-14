@@ -5,9 +5,15 @@ import {
   updateSingleChannel,
 } from '../update';
 
+import {
+  ChannelConfig,
+  OAuth2ServiceSettings,
+  ChannelSettings,
+} from '../../types';
+
 interface UpdateParams {
-  channels: any;
-  clients: any;
+  channels: ChannelConfig<ChannelSettings>;
+  clients: ChannelConfig<OAuth2ServiceSettings>;
   content: string;
 }
 
