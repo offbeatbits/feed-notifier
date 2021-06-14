@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MastodonService post method should return status URL 1`] = `"https://twitter.com/testUsername/status/sample_tweet_id"`;

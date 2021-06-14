@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MastodonService post method should return status URL 1`] = `"sample_uri_from_inline_megalodon_mock"`;
