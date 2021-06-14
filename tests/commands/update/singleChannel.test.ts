@@ -25,6 +25,10 @@ const sampleDisabledService = {
 };
 
 describe('updateSingleChannel', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should update a channel', async () => {
     expect.assertions(1);
     await updateSingleChannel(sampleService as any, 'sample status');
@@ -34,6 +38,6 @@ describe('updateSingleChannel', () => {
   it('should not update a channel if disabled', async () => {
     expect.assertions(1);
     await updateSingleChannel(sampleDisabledService as any, 'sample status');
-    expect(createService).toHaveBeenCalledTimes(1);
+    expect(createService).toHaveBeenCalledTimes(0);
   });
 });

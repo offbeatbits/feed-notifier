@@ -1,7 +1,7 @@
 import { ArticleObject } from '../../types';
 import { logger } from '../../lib';
 import {
-  compareArticles,
+  areArticlesDifferent,
   isItForcedUpdate,
 } from '../../helpers';
 
@@ -11,7 +11,7 @@ export const determineUpdateState = (
 ) => {
   const skip = isItForcedUpdate();
 
-  const isUpdateNeeded = compareArticles({
+  const isUpdateNeeded = areArticlesDifferent({
     oldArticle,
     newArticle,
     skip,

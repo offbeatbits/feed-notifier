@@ -1,6 +1,6 @@
-import { compareArticles } from '../../../src/helpers/articles';
+import { areArticlesDifferent } from '../../../src/helpers/articles/areArticlesDifferent';
 
-describe('compareArticles', () => {
+describe('areArticlesDifferent', () => {
   const article1 = {
     feedUpdateDate: '2021-06-04T11:20:42Z',
     date: '2021-06-04T11:20:42Z',
@@ -15,15 +15,22 @@ describe('compareArticles', () => {
     url: 'sample_url_2',
   };
 
-  it('should return true for identical articles', () => {
-    expect(compareArticles({
+  it('should return true for two different articles', () => {
+    expect(areArticlesDifferent({
       oldArticle: article1,
-      newArticle: article1,
+      newArticle: article2,
     })).toBe(true);
   });
 
+  it('should return false for two identical articles', () => {
+    expect(areArticlesDifferent({
+      oldArticle: article1,
+      newArticle: article1,
+    })).toBe(false);
+  });
+
   it('should return true when skip param is provided', () => {
-    expect(compareArticles({
+    expect(areArticlesDifferent({
       oldArticle: article1,
       newArticle: article2,
       skip: true,
@@ -31,21 +38,21 @@ describe('compareArticles', () => {
   });
 
   it('should return false when one of the articles is empty', () => {
-    expect(compareArticles({
+    expect(areArticlesDifferent({
       oldArticle: article1,
       newArticle: {} as any,
     })).toBe(false);
   });
 
   it('should return false when both articles is empty', () => {
-    expect(compareArticles({
+    expect(areArticlesDifferent({
       oldArticle: {} as any,
       newArticle: {} as any,
     })).toBe(false);
   });
 
   it('should return false when both articles are null', () => {
-    expect(compareArticles({
+    expect(areArticlesDifferent({
       oldArticle: null,
       newArticle: null,
     })).toBe(false);

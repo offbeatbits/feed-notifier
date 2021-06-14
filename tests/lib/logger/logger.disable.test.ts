@@ -8,6 +8,10 @@ jest.mock('../../../src/config/app', () => ({
 }));
 
 describe('Logger (disabled)', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('info should not call console.log if enableLogging is set to false', () => {
     const restoreConsole = mockConsole();
     logger.info('Test message');

@@ -1,4 +1,4 @@
-export * from './compareArticles';
+export * from './areArticlesDifferent';
 export * from './generatePostContent';
 export * from './getCachedArticle';
 export * from './getLatestArticle';

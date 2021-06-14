@@ -18,15 +18,13 @@ describe('determineInitialAppState', () => {
   });
 
   it('should detect if article cache is empty and no params were provided', () => {
-    determineInitialAppState(null);
-    expect(process.exit).toHaveBeenCalledTimes(1);
+    expect(() => determineInitialAppState(null)).not.toThrow();
   });
 
   it('should detect if article cache is empty and update was forced', () => {
     forceArgs.forEach(forceArg => {
       mockArgv([forceArg], async () => {
-        determineInitialAppState(null);
-        expect(process.exit).toHaveBeenCalledTimes(1);
+        expect(() => determineInitialAppState(null)).not.toThrow();
       });
     });
   });
@@ -34,23 +32,20 @@ describe('determineInitialAppState', () => {
   it('should detect if article cache is empty and initialization was forced', () => {
     initArgs.forEach(initArg => {
       mockArgv([initArg], async () => {
-        determineInitialAppState(null);
-        expect(process.exit).toHaveBeenCalledTimes(1);
+        expect(() => determineInitialAppState(null)).not.toThrow();
       });
     });
   });
 
   it('should detect if article cache is not empty', () => {
-    determineInitialAppState(sampleCachedArticle);
-    expect(process.exit).toHaveBeenCalledTimes(0);
+    expect(() => determineInitialAppState(sampleCachedArticle)).not.toThrow();
   });
 
   it('should detect if both force and init params were provided', () => {
     forceArgs.forEach(forceArg => {
       initArgs.forEach(initArg => {
         mockArgv([forceArg, initArg], async () => {
-          determineInitialAppState(null);
-          expect(process.exit).toHaveBeenCalledTimes(1);
+          expect(() => determineInitialAppState(null)).not.toThrow();
         });
       });
     });

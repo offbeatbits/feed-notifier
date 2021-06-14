@@ -1,22 +1,22 @@
 import { logger } from '../../lib/logger';
 import { ArticleObject } from '../../types';
 
-const compareStrings = (
+const areStringsDifferent = (
   someString: string | null | undefined,
   otherString: string | null | undefined,
 ) => {
   if (someString && otherString) {
-    return someString.localeCompare(otherString) === 0;
+    return someString.localeCompare(otherString) !== 0;
   }
   return false;
 };
 
-const compareDates = (
+const areDatesDifferent = (
   oldDate: string | null | undefined,
   newDate: string | null | undefined,
 ) => {
   if (oldDate && newDate) {
-    return new Date(oldDate!).getTime() < new Date(newDate).getTime()
+    return new Date(oldDate!).getTime() !== new Date(newDate).getTime()
       || Boolean(oldDate);
   }
   return false;
@@ -28,7 +28,7 @@ interface ArticlesToCompare {
   skip?: boolean;
 }
 
-export const compareArticles = ({
+export const areArticlesDifferent = ({
   oldArticle,
   newArticle,
   skip,
@@ -40,28 +40,28 @@ export const compareArticles = ({
 
   logger.verbose('Comparing articles...');
 
-  const titleIsDifferent = compareStrings(
+  const titleIsDifferent = areStringsDifferent(
     oldArticle?.title,
     newArticle?.title,
   );
 
   logger.verbose(`Article title is different: ${titleIsDifferent}`);
 
-  const urlIsDifferent = compareStrings(
+  const urlIsDifferent = areStringsDifferent(
     oldArticle?.url,
     newArticle?.url,
   );
 
   logger.verbose(`Article URL is different: ${urlIsDifferent}`);
 
-  const articleDateIsLater = compareDates(
+  const articleDateIsLater = areDatesDifferent(
     oldArticle?.date,
     newArticle?.date,
   );
 
   logger.verbose(`Article date is later: ${articleDateIsLater}`);
 
-  const feedUpdateDateIsLater = compareDates(
+  const feedUpdateDateIsLater = areDatesDifferent(
     oldArticle?.feedUpdateDate,
     newArticle?.feedUpdateDate,
   );
@@ -73,7 +73,7 @@ export const compareArticles = ({
     && articleDateIsLater
     && feedUpdateDateIsLater;
 
-  logger.verbose(`Articles are different: ${result}`);
+  logger.verbose(`Articles are identical: ${result}`);
 
   return result;
 };
