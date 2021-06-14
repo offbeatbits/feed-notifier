@@ -7,10 +7,8 @@ export const updateSingleChannel = async (
   content: string,
 ) => {
   logger.info(`Updating channel '${type}'...`);
-  console.log(createService); // eslint-disable-line
   if (settings.enabled) {
     const service = createService(type, settings);
-    console.log(service); // eslint-disable-line
     logger.verbose(`Posting content: ${content}`);
     const statusURL = await service.post(content);
     logger.info(`Status URL: ${statusURL}`);
