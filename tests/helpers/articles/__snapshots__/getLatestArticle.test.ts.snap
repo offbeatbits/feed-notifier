@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getLatestArticle should get latest article 1`] = `
+Object {
+  "date": "gla_mocked_last_item_pub_date",
+  "feedUpdateDate": "gla_mocked_last_build_date",
+  "title": "gla_mocked_last_item_title",
+  "url": "gla_mocked_last_item_link",
+}
+`;
