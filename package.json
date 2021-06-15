@@ -10,7 +10,7 @@
     "clearTestCache": "jest --clearCache",
     "clean": "rimraf dist/*",
     "lint": "eslint . --ext .ts",
-    "compile": "npm run clean; tsc --project tsconfig.json",
+    "compile": "tsc --project tsconfig.json",
     "build": "npm run lint && npm run test && npm run clean && npm run compile",
     "dev": "npm run clean; tsc -w --project tsconfig.json"
   },
