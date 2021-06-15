@@ -25,7 +25,7 @@ module.exports = {
     "!**/src/types.d.ts"
   ],
   "automock": false,
-  "setupFiles": ["./setupTests.js"],
+  "setupFiles": ["<rootDir>/setupTests.js"],
   // "coverageThreshold": {
   //   "global": {
   //     "branches": 100,
