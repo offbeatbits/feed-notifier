@@ -1,3 +1,5 @@
+import path from 'path';
+import dotenv from 'dotenv';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { start } from '../../src/commands/start';
 import { isItInitialization } from '../../src/helpers';
@@ -13,6 +15,10 @@ jest.mock('../../src/commands/actions/index');
 jest.mock('../../src/commands/actions/determineInitialAppState');
 
 describe('start', () => {
+  dotenv.config({
+    path: path.resolve(process.cwd(), '.env.testing'),
+  });
+
   it('should start the update', () => {
     expect(async () => start()).not.toThrow();
   });
