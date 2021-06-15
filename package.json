@@ -1,6 +1,6 @@
 {
   "name": "feed-notifier",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Node.js script for monitoring Atom / RSS feeds and posting new links to Twitter / Mastodon",
   "main": "dist/index.js",
   "private": true,
