@@ -73,7 +73,7 @@ export const areArticlesDifferent = ({
     && articleDateIsLater
     && feedUpdateDateIsLater;
 
-  logger.verbose(`Articles are identical: ${result}`);
+  logger.verbose(`Articles are different: ${result}`);
 
   return result;
 };
