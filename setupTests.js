@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'testing';
+process.env.NODE_ENV = 'test';
 process.env.FN_FEED_URL = 'https://example.org/test_feed.xml';
 process.env.FN_CACHE_DIRECTORY = 'test_cache_directory';
 process.env.FN_LOGGING_ENABLE = 'false';
