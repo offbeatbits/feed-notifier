@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
 
-dotenv.config({ path: './.env.testing' });
+dotenv.config({ path: '.env.testing' });
 
 process.exit = () => {};
