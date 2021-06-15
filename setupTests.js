@@ -16,9 +16,4 @@ process.env.FN_MASTODON_CLIENT_KEY = 'test_mastodon_client_key';
 process.env.FN_MASTODON_CLIENT_SECRET = 'test_mastodon_client_secret';
 process.env.FN_MASTODON_ACCESS_TOKEN = 'test_mastodon_access_token';
 
-// require('dotenv').config({
-//   debug: process.env.DEBUG,
-//   path: '.env.testing',
-// });
-
 process.exit = () => {};
