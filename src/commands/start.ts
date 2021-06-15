@@ -1,4 +1,3 @@
-import { logger } from '../lib';
 import {
   channels,
   clients,
@@ -24,30 +23,27 @@ export const start = async () => {
   const cachedArticle = getCachedArticle();
   const isInitialization = isItInitialization();
   const latestArticle = await getLatestArticle(feedUrl);
+  const shallProceed = determineInitialAppState(cachedArticle);
 
-  determineInitialAppState(cachedArticle);
+  if (shallProceed) {
+    if (isInitialization) {
+      updateCache(latestArticle);
+      finishUpdate(isInitialization);
+    } else {
+      const isUpdateNeeded = determineUpdateState(cachedArticle, latestArticle);
 
-  if (isInitialization) {
-    updateCache(latestArticle);
-    finishUpdate(isInitialization);
-  } else {
-    const isUpdateNeeded = determineUpdateState(cachedArticle, latestArticle);
+      if (isUpdateNeeded) {
+        const content = prepareUpdate(latestArticle!);
 
-    if (!isUpdateNeeded) {
-      logger.info('Exiting!');
-      process.exit();
+        await postTheUpdate({
+          channels,
+          clients,
+          content,
+        });
+
+        updateCache(latestArticle);
+      }
+      finishUpdate();
     }
-
-    const content = prepareUpdate(latestArticle!);
-
-    await postTheUpdate({
-      channels,
-      clients,
-      content,
-    });
-
-    updateCache(latestArticle);
-
-    finishUpdate();
   }
 };

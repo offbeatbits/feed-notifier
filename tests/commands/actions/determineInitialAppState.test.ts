@@ -3,8 +3,6 @@ import { forceArgs } from '../../../src/config/forceArgs';
 import { initArgs } from '../../../src/config/initArgs';
 import { determineInitialAppState } from '../../../src/commands/actions/determineInitialAppState';
 
-jest.spyOn(process as any, 'exit').mockImplementation(() => {});
-
 const sampleCachedArticle = {
   feedUpdateDate: '2021-06-04T11:20:42Z',
   date: '2021-06-04T11:20:42Z',
@@ -13,10 +11,6 @@ const sampleCachedArticle = {
 };
 
 describe('determineInitialAppState', () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should detect if article cache is empty and no params were provided', () => {
     expect(() => determineInitialAppState(null)).not.toThrow();
   });

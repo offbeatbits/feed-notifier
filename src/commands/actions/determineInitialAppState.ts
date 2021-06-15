@@ -13,11 +13,15 @@ export const determineInitialAppState = (cachedArticle: ArticleObject | null) =>
 
   if (isForcedUpdate && isInitialization) {
     logger.verbose("Detected '--skipCache' and '--initialize' passed at once. Make up your mind, please? :)");
-    process.exit();
-  } else if (!cachedArticle && !isForcedUpdate && !isInitialization) {
-    logger.verbose("Exiting (pass '--skipCache' to force an update or '--initialize' to generate cache)");
-    process.exit();
-  } else if (isForcedUpdate) {
-    logger.verbose('Proceeding despite empty cache...');
+    return false;
   }
+  if (!cachedArticle && !isForcedUpdate && !isInitialization) {
+    logger.verbose("Exiting (pass '--skipCache' to force an update or '--initialize' to generate cache)");
+    return false;
+  }
+  if (isForcedUpdate) {
+    logger.verbose('Proceeding despite empty cache...');
+    return true;
+  }
+  return true;
 };

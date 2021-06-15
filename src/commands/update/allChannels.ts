@@ -13,12 +13,12 @@ interface UpdateAllChannelsArgs {
   content: string,
 }
 
-export const updateAllChannels = ({
+export const updateAllChannels = async ({
   channels,
   clients,
   updateFn,
   content,
 }: UpdateAllChannelsArgs) => {
   const channelsToUpdate = getChannelConfigArray(channels, clients);
-  channelsToUpdate.forEach(channel => updateFn(channel, content));
+  await channelsToUpdate.forEach(channel => Promise.resolve(updateFn(channel, content)));
 };
