@@ -17,13 +17,22 @@ export interface MastodonSettings extends CommonServiceSettings {
   host: string;
 }
 
-export type ChannelSettings = TwitterSettings | MastodonSettings;
+export interface MauticSettings extends CommonServiceSettings {
+  url: string;
+  username: string;
+  password: string;
+}
+
+export type ChannelSettings =
+  TwitterSettings
+  | MastodonSettings
+  | MauticSettings;
 
 export interface ClientSettings {
   settings: OAuth2ServiceSettings;
 }
 
-export type ChannelName = 'twitter' | 'mastodon';
+export type ChannelName = 'twitter' | 'mastodon' | 'mautic';
 
 export type ChannelConfig<T> = Record<ChannelName, T>;
 
@@ -31,7 +40,12 @@ export interface TwitterServiceSettings extends TwitterSettings, ClientSettings 
 
 export interface MastodonServiceSettings extends MastodonSettings, ClientSettings {}
 
-export type ServiceSettings = TwitterServiceSettings | MastodonServiceSettings;
+export interface MauticServiceSettings extends MauticSettings {}
+
+export type ServiceSettings =
+  TwitterServiceSettings
+  | MastodonServiceSettings
+  | MauticServiceSettings;
 
 export type ServiceClassSettings =
   ChannelSettings & {

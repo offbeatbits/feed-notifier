@@ -51,6 +51,7 @@
     "mock-argv": "^2.0.2",
     "mock-fs": "^5.0.0",
     "mocked-env": "^1.3.4",
+    "node-mautic": "^1.2.6",
     "rimraf": "^3.0.2",
     "rss-parser": "^3.12.0",
     "ts-jest": "^27.0.2",
