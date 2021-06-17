@@ -3,6 +3,7 @@
 exports[`Service mappings should map channels to services 1`] = `
 Object {
   "mastodon": [Function],
+  "mautic": [Function],
   "twitter": [Function],
 }
 `;
