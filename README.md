@@ -1,6 +1,5 @@
 # feed-notifier
-
-[![Build status](https://ci.appveyor.com/api/projects/status/rg8e93vtapqm4qj7?svg=true)](https://ci.appveyor.com/project/lwojcik/feed-notifier)
+[![Build status](https://ci.appveyor.com/api/projects/status/rg8e93vtapqm4qj7/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/feed-notifier/branch/master)
 [![codecov](https://codecov.io/gh/offbeatbits/feed-notifier/branch/master/graph/badge.svg?token=z4HlY3ZRAm)](https://codecov.io/gh/offbeatbits/feed-notifier)
 
 Node.js script monitoring external RSS / Atom feed and posting status updates to social media services when it detects a change.
