@@ -6,14 +6,14 @@ describe('isItInitialization', () => {
   initArgs.forEach(arg => {
     it(`should return true when ${arg} flag is present`, () => {
       mockArgv([arg], async () => {
-        expect(isItInitialization()).toStrictEqual(true);
+        expect(isItInitialization()).toBe(true);
       });
     });
   });
 
   it('should return false when no force flags are present', () => {
     mockArgv([], async () => {
-      expect(isItInitialization()).toStrictEqual(false);
+      expect(isItInitialization()).toBe(false);
     });
   });
 });

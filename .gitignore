@@ -62,3 +62,4 @@ docs/
 _cache/
 
 package-lock.json
+yarn.lock
