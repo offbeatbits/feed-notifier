@@ -1,4 +1,5 @@
 import { logger } from '../../lib/logger';
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 import { Cache } from '../../lib/cache';
 import { app } from '../../config';
 

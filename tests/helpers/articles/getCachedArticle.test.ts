@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 import { Cache } from '../../../src/lib/cache';
 import { getCachedArticle } from '../../../src/helpers/articles/getCachedArticle';
 

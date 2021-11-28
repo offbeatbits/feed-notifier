@@ -34,6 +34,7 @@ const getFileContents = (filePath: string) => {
     return '';
   }
 };
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export class Cache {
   static get(name: string) {
     logger.verbose(`Getting cached value for ${name}...`);

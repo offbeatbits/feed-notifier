@@ -24,12 +24,14 @@ describe('getLatestArticle', () => {
 
   it('should get latest article', async () => {
     expect.assertions(1);
-    expect(await getLatestArticle('sample_feed_url')).toMatchSnapshot();
+    const article = await getLatestArticle('sample_feed_url');
+    expect(article).toMatchSnapshot();
   });
 
   it('should return null if feed returns no article', async () => {
     expect.assertions(1);
     (Feed.prototype as any).fetch = () => Promise.resolve(null);
-    expect((await getLatestArticle('sample_feed_url'))).toBeNull();
+    const article = await getLatestArticle('sample_feed_url');
+    expect(article).toBeNull();
   });
 });
