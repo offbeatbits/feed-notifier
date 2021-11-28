@@ -30,6 +30,7 @@
     ],
     "jest/no-hooks": "off",
     "import/prefer-default-export": "off",
-    "jest/require-hook": "off"
+    "jest/require-hook": "off",
+    "jest/prefer-lowercase-title": "off"
   }
 }

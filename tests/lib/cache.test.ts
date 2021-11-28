@@ -1,4 +1,5 @@
 import mock from 'mock-fs';
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 import { Cache } from '../../src/lib/cache';
 
 const mockFs = (structure?: any) => mock(structure);
@@ -48,7 +49,7 @@ describe('Cache', () => {
   it('should return empty string if cache file is not present', () => {
     mockFs();
 
-    expect(Cache.get('bar3')).toStrictEqual('');
+    expect(Cache.get('bar3')).toBe('');
     mock.restore();
   });
 });

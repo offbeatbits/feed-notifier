@@ -19,6 +19,6 @@ jest.mock('rss-parser', () => jest.fn().mockImplementation(() => ({
 describe('fetchFeed', () => {
   it('should fetch feed', async () => {
     expect.assertions(1);
-    expect(await fetchFeed('sample_url')).toMatchSnapshot();
+    await expect(fetchFeed('sample_url')).toMatchSnapshot();
   });
 });
