@@ -22,11 +22,12 @@ export class Feed {
   }
 
   async fetch() {
-    this.content = await new Parser({
+    const feedContent = await new Parser({
       customFields: {
         feed: ['lastBuildDate'],
       },
     }).parseURL(this.url) as FeedContent;
+    this.content = feedContent;
     return this as Feed;
   }
 
