@@ -4,7 +4,7 @@ import {
   ChannelSettings,
   OAuth2ServiceSettings,
   ChannelConfigRecord,
-} from "../../types";
+} from "../../types.d";
 
 interface UpdateAllChannelsArgs {
   channels: ChannelConfig<ChannelSettings>;

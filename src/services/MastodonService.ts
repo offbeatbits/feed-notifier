@@ -1,6 +1,6 @@
 import generator, { MegalodonInterface } from "megalodon";
 import { OAuth2Service } from "../models";
-import { MastodonServiceSettings } from "../types";
+import { MastodonServiceSettings } from "../types.d";
 
 export class MastodonService extends OAuth2Service {
   username: string;

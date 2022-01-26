@@ -1,6 +1,6 @@
 import { logger } from "../../lib";
 import { createService } from "../../helpers/services";
-import { ChannelConfigRecord } from "../../types";
+import { ChannelConfigRecord } from "../../types.d";
 
 export const updateSingleChannel = async (
   { type, settings }: ChannelConfigRecord,

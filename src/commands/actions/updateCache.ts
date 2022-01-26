@@ -1,4 +1,4 @@
-import { ArticleObject } from "../../types";
+import { ArticleObject } from "../../types.d";
 import { logger } from "../../lib";
 import { updateArticleCache } from "../../helpers";
 

@@ -6,7 +6,7 @@ import {
   ChannelConfig,
   OAuth2ServiceSettings,
   ChannelSettings,
-} from "../../types";
+} from "../../types.d";
 
 interface UpdateParams {
   channels: ChannelConfig<ChannelSettings>;

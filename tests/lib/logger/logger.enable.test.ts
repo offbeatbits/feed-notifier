@@ -12,7 +12,6 @@ describe("Logger (enabled)", () => {
     const restoreConsole = mockConsole();
     const testMessage = "Test message";
     logger.info(testMessage);
-    // eslint-disable-next-line jest/prefer-called-with
     expect(console.log).toHaveBeenCalledWith(`[info] ${testMessage}`);
     restoreConsole();
   });
@@ -21,7 +20,6 @@ describe("Logger (enabled)", () => {
     const restoreConsole = mockConsole();
     const testMessage = "Test message";
     logger.verbose(testMessage);
-    // eslint-disable-next-line jest/prefer-called-with
     expect(console.log).toHaveBeenCalledWith(`[verbose] ${testMessage}`);
     restoreConsole();
   });

@@ -33,6 +33,7 @@ describe("getLatestArticle", () => {
 
   it("should return null if feed returns no article", async () => {
     expect.assertions(1);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Feed.prototype as any).fetch = () => Promise.resolve(null);
     const article = await getLatestArticle("sample_feed_url");
     expect(article).toBeNull();

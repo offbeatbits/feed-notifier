@@ -4,7 +4,7 @@ import {
   ChannelConfig,
   ChannelSettings,
   OAuth2ServiceSettings,
-} from "../../../src/types";
+} from "../../../src/types.d";
 
 const sampleChannels = {
   sampleChannel1: {

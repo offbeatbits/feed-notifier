@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { areArticlesDifferent } from "../../../src/helpers/articles/areArticlesDifferent";
 
 describe("areArticlesDifferent", () => {

@@ -4,7 +4,7 @@ import {
   ChannelName,
   ServiceClassSettings,
   MastodonSettings,
-} from "../../types";
+} from "../../types.d";
 
 type ServiceInstance = TwitterService | MastodonService;
 
@@ -12,6 +12,7 @@ export const createService = (
   type: ChannelName,
   settings: ServiceClassSettings
 ) =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   new (serviceMappings[type] as any)({
     // oof :(
     username: settings.username,

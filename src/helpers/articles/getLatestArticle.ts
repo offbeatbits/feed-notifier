@@ -1,6 +1,6 @@
 import { logger } from "../../lib/logger";
 import { fetchFeed } from "../feed";
-import { ArticleObject } from "../../types";
+import { ArticleObject } from "../../types.d";
 
 export const getLatestArticle = async (feedUrl: string) => {
   logger.verbose("Getting latest article...");

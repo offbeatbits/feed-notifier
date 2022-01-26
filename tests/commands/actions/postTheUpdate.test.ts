@@ -33,6 +33,7 @@ const postUpdateArgs = {
 
 describe("postTheUpdate", () => {
   it("should post the update", () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     postTheUpdate(postUpdateArgs as any);
     expect(updateSingleChannel).toHaveBeenCalledTimes(2);
   });

@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import { TwitterClient } from "twitter-api-client";
 import { OAuth2Service } from "../models";
-import { TwitterServiceSettings } from "../types";
+import { TwitterServiceSettings } from "../types.d";
 
 export class TwitterService extends OAuth2Service {
   username: string;

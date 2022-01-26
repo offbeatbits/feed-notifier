@@ -1,5 +1,5 @@
 import { logger } from "../../lib/logger";
-import { ArticleObject } from "../../types";
+import { ArticleObject } from "../../types.d";
 
 const areStringsDifferent = (
   someString: string | null | undefined,

@@ -31,6 +31,7 @@ const testUpdateArgs = {
 
 describe("updateAllChannels", () => {
   it("should update all channels", () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(() => updateAllChannels(testUpdateArgs as any)).not.toThrow();
   });
 });

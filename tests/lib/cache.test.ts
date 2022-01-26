@@ -2,6 +2,7 @@ import mock from "mock-fs";
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 import { Cache } from "../../src/lib/cache";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mockFs = (structure?: any) => mock(structure);
 
 describe("Cache", () => {
@@ -29,6 +30,7 @@ describe("Cache", () => {
   });
 
   it("should not create cache directory if it exists", () => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const cacheDir = process.env.FN_CACHE_DIRECTORY!;
     mockFs({
       [cacheDir]: {},

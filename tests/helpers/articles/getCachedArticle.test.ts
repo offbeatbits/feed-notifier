@@ -25,6 +25,7 @@ describe("getCachedArticle", () => {
   });
 
   it("should return null if Cache contains no article", () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Cache as any).get = () => null;
     expect(getCachedArticle()).toBeNull();
   });

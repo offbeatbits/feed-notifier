@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createService } from "../../../src/helpers/services/createService";
 import { updateSingleChannel } from "../../../src/commands/update/singleChannel";
 

@@ -19,12 +19,7 @@ jest.mock("rss-parser", () =>
   }))
 );
 
-// eslint-disable-next-line jest/prefer-lowercase-title
 describe("Feed model", () => {
-  afterAll(async () => {
-    await new Promise<void>((resolve) => setTimeout(() => resolve(), 500)); // avoid jest open handle error
-  });
-
   const feedInstance = new Feed("sample_feed_url");
 
   const feedMethods = [
@@ -41,6 +36,7 @@ describe("Feed model", () => {
 
   it("should implement all methods", () => {
     feedMethods.forEach((method) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect((feedInstance as any)[method]).toBeDefined();
     });
   });

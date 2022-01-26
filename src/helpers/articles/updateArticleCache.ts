@@ -3,7 +3,7 @@ import { logger } from "../../lib/logger";
 import { Cache } from "../../lib/cache";
 import { app } from "../../config";
 
-import { ArticleObject } from "../../types";
+import { ArticleObject } from "../../types.d";
 
 export const updateArticleCache = (article: ArticleObject | null) => {
   if (!article) {

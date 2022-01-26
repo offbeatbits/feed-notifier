@@ -32,6 +32,7 @@ export class Feed {
   }
 
   private getFeed() {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this.content!;
   }
 
