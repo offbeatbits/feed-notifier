@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "NODE_ENV=development node dist/index.js",
+    "start:nodotenv": "node dist/index.js",
     "test": "jest --forceExit",
     "clearTestCache": "jest --clearCache",
     "clean": "rimraf dist/*",
@@ -36,7 +37,7 @@
   "dependencies": {
     "@types/jest": "27.4.0",
     "@types/mock-fs": "4.13.1",
-    "@types/node": "17.0.7",
+    "@types/node": "17.0.8",
     "@types/xml2js": "0.4.9",
     "@typescript-eslint/eslint-plugin": "5.9.0",
     "@typescript-eslint/parser": "5.9.0",
