@@ -17,6 +17,12 @@ npm run build
 
 ## Configuration
 
+By default, when the script is executed via `npm start` command, it reads configuration details from `.env` file within project directory. You can override this behavior and force the script to run configuration from server environment variables with `start:nodotenv` command, like this:
+
+```bash
+npm run start:nodotenv
+```
+
 See `.env.sample` for environment variables required to run the script. Note that posting on Twitter and Mastodon requires OAuth app credentials.
 
 You can enable two levels of logging (basic and verbose) by setting `FN_LOGGING_ENABLE` and / or `FN_LOGGING_VERBOSE_ENABLE` to `'true'`.
@@ -29,7 +35,7 @@ First run must be done with `--initialize` flag in order to hydrate article cach
 
 ```bash
 cd feed-notifier
-npm start --initialize
+npm start -- --initialize
 ```
 
 The script won't attempt posting on social media with empty article cache.

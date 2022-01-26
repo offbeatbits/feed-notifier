@@ -8,7 +8,7 @@ export const getLatestArticle = async (feedUrl: string) => {
     const feed = await fetchFeed(feedUrl);
 
     const article = {
-      feedUpdateDate: feed.getFeedUpdateDate(),
+      feedUpdateDate: feed.getFeedUpdateDate() || feed.getLatestPostDate(),
       date: feed.getLatestPostDate(),
       title: feed.getLatestPostTitle(),
       url: feed.getLatestPostUrl(),
