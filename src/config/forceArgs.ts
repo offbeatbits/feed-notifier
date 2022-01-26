@@ -1,6 +1,6 @@
 export const forceArgs = [
-  '-skipCache',
-  '--skipCache',
-  '-skipcache',
-  '--skipcache',
+  "-skipCache",
+  "--skipCache",
+  "-skipcache",
+  "--skipcache",
 ];

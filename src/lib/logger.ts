@@ -1,11 +1,6 @@
-import {
-  app,
-} from '../config';
+import { app } from "../config";
 
-const {
-  enableLogging,
-  enableVerboseLogging,
-} = app;
+const { enableLogging, enableVerboseLogging } = app;
 
 export const logger = {
   info: (content: string) => {

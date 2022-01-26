@@ -1,2 +1,2 @@
-export * from './Feed';
-export * from './OAuth2Service';
+export * from "./Feed";
+export * from "./OAuth2Service";

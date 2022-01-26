@@ -1,1 +1,1 @@
-export * from './getChannelConfigArray';
+export * from "./getChannelConfigArray";

@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { app } from '../config';
-import { logger } from './logger';
+import fs from "fs";
+import path from "path";
+import { app } from "../config";
+import { logger } from "./logger";
 
 const { cacheDirectory } = app;
 
@@ -17,11 +17,7 @@ interface SaveToFileArgs {
   content: string;
 }
 
-const saveToFile = ({
-  directory,
-  file,
-  content,
-}: SaveToFileArgs) => {
+const saveToFile = ({ directory, file, content }: SaveToFileArgs) => {
   createDirectoryMaybe(directory);
   const filePath = path.join(directory, file);
   fs.writeFileSync(filePath, content);
@@ -31,7 +27,7 @@ const getFileContents = (filePath: string) => {
   try {
     return Buffer.from(fs.readFileSync(filePath)).toString();
   } catch {
-    return '';
+    return "";
   }
 };
 // eslint-disable-next-line @typescript-eslint/no-redeclare

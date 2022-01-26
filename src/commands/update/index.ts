@@ -1,2 +1,2 @@
-export * from './allChannels';
-export * from './singleChannel';
+export * from "./allChannels";
+export * from "./singleChannel";

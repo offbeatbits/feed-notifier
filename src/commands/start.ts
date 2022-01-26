@@ -1,14 +1,10 @@
-import {
-  channels,
-  clients,
-  feedUrl,
-} from '../config';
+import { channels, clients, feedUrl } from "../config";
 
 import {
   getCachedArticle,
   getLatestArticle,
   isItInitialization,
-} from '../helpers';
+} from "../helpers";
 
 import {
   determineInitialAppState,
@@ -17,7 +13,7 @@ import {
   postTheUpdate,
   updateCache,
   finishUpdate,
-} from './actions';
+} from "./actions";
 
 export const start = async () => {
   const cachedArticle = getCachedArticle();

@@ -1,4 +1,4 @@
-import { OAuth2ServiceSettings } from '../types';
+import { OAuth2ServiceSettings } from "../types.d";
 
 export abstract class OAuth2Service {
   key: string;

@@ -1,13 +1,10 @@
-import { ArticleObject } from '../../types';
-import { logger } from '../../lib';
-import {
-  areArticlesDifferent,
-  isItForcedUpdate,
-} from '../../helpers';
+import { ArticleObject } from "../../types.d";
+import { logger } from "../../lib";
+import { areArticlesDifferent, isItForcedUpdate } from "../../helpers";
 
 export const determineUpdateState = (
   oldArticle: ArticleObject | null,
-  newArticle: ArticleObject | null,
+  newArticle: ArticleObject | null
 ) => {
   const skip = isItForcedUpdate();
 

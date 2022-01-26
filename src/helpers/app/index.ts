@@ -1,2 +1,2 @@
-export * from './isItForcedUpdate';
-export * from './isItInitialization';
+export * from "./isItForcedUpdate";
+export * from "./isItInitialization";

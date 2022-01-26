@@ -1,7 +1,4 @@
-import {
-  TwitterService,
-  MastodonService,
-} from '../services';
+import { TwitterService, MastodonService } from "../services";
 
 export const serviceMappings = {
   twitter: TwitterService,
