@@ -9,18 +9,16 @@ MastodonService {
   "mastodonClient": Mastodon {
     "baseUrl": "sample_mastodon_host",
     "client": Client {
-      "accessToken": "sample_mastodon_access_token",
-      "baseUrl": "sample_mastodon_host",
-      "cancelTokenSource": Object {
-        "cancel": [Function],
-        "token": CancelToken {
-          "promise": Promise {
-            "catch": [Function],
-            "then": [Function],
-          },
-          "throwIfRequested": [Function],
+      "abortController": AbortController {
+        Symbol(signal): AbortSignal {
+          Symbol(kEvents): Map {},
+          Symbol(events.maxEventTargetListeners): 10,
+          Symbol(events.maxEventTargetListenersWarned): false,
+          Symbol(kAborted): false,
         },
       },
+      "accessToken": "sample_mastodon_access_token",
+      "baseUrl": "sample_mastodon_host",
       "proxyConfig": false,
       "userAgent": "megalodon",
     },
