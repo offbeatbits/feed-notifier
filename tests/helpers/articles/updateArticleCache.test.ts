@@ -12,9 +12,7 @@ const sampleArticle = {
 jest.mock("../../../src/lib/cache", () => ({
   Cache: {
     // eslint-disable-next-line no-empty-pattern
-    set: jest
-      .fn()
-      .mockImplementation(({}, value: any) => JSON.stringify(value)),
+    set: jest.fn().mockImplementation(({}, value) => JSON.stringify(value)),
   },
 }));
 
