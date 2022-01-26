@@ -1,10 +1,10 @@
-import { logger } from '../../lib';
-import { createService } from '../../helpers/services';
-import { ChannelConfigRecord } from '../../types';
+import { logger } from "../../lib";
+import { createService } from "../../helpers/services";
+import { ChannelConfigRecord } from "../../types";
 
 export const updateSingleChannel = async (
   { type, settings }: ChannelConfigRecord,
-  content: string,
+  content: string
 ) => {
   logger.info(`Updating channel '${type}'...`);
   if (settings.enabled) {

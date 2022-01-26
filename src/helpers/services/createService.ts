@@ -1,21 +1,19 @@
-import {
-  TwitterService,
-  MastodonService,
-} from '../../services';
-import { serviceMappings } from '../../config';
+import { TwitterService, MastodonService } from "../../services";
+import { serviceMappings } from "../../config";
 import {
   ChannelName,
   ServiceClassSettings,
   MastodonSettings,
-} from '../../types';
+} from "../../types";
 
 type ServiceInstance = TwitterService | MastodonService;
 
 export const createService = (
   type: ChannelName,
-  settings: ServiceClassSettings,
+  settings: ServiceClassSettings
 ) =>
-  new (serviceMappings[type] as any)({ // oof :(
+  new (serviceMappings[type] as any)({
+    // oof :(
     username: settings.username,
     host: (settings as MastodonSettings).host,
     settings: settings.client,

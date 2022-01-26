@@ -1,4 +1,1 @@
-export const initArgs = [
-  '-initialize',
-  '--initialize',
-];
+export const initArgs = ["-initialize", "--initialize"];

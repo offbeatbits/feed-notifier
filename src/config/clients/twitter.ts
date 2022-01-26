@@ -1,4 +1,4 @@
-import { OAuth2ServiceSettings } from '../../types';
+import { OAuth2ServiceSettings } from "../../types";
 
 const { env } = process;
 

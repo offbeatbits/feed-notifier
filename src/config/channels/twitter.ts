@@ -1,5 +1,5 @@
-import { boolean } from '../../utils';
-import { TwitterSettings } from '../../types';
+import { boolean } from "../../utils";
+import { TwitterSettings } from "../../types";
 
 const { env } = process;
 

@@ -1,2 +1,2 @@
-export * from './mastodon';
-export * from './twitter';
+export * from "./mastodon";
+export * from "./twitter";

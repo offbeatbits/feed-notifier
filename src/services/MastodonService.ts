@@ -1,8 +1,6 @@
-import generator, {
-  MegalodonInterface,
-} from 'megalodon';
-import { OAuth2Service } from '../models';
-import { MastodonServiceSettings } from '../types';
+import generator, { MegalodonInterface } from "megalodon";
+import { OAuth2Service } from "../models";
+import { MastodonServiceSettings } from "../types";
 
 export class MastodonService extends OAuth2Service {
   username: string;
@@ -11,19 +9,11 @@ export class MastodonService extends OAuth2Service {
 
   private mastodonClient: MegalodonInterface;
 
-  constructor({
-    username,
-    host,
-    settings,
-  }: MastodonServiceSettings) {
+  constructor({ username, host, settings }: MastodonServiceSettings) {
     super(settings);
     this.username = username;
     this.host = host;
-    this.mastodonClient = generator(
-      'mastodon',
-      this.host,
-      this.accessToken,
-    );
+    this.mastodonClient = generator("mastodon", this.host, this.accessToken);
   }
 
   async post(content: string) {

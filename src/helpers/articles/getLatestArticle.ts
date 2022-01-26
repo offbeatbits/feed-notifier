@@ -1,9 +1,9 @@
-import { logger } from '../../lib/logger';
-import { fetchFeed } from '../feed';
-import { ArticleObject } from '../../types';
+import { logger } from "../../lib/logger";
+import { fetchFeed } from "../feed";
+import { ArticleObject } from "../../types";
 
 export const getLatestArticle = async (feedUrl: string) => {
-  logger.verbose('Getting latest article...');
+  logger.verbose("Getting latest article...");
   try {
     const feed = await fetchFeed(feedUrl);
 
@@ -21,7 +21,7 @@ export const getLatestArticle = async (feedUrl: string) => {
 
     return article;
   } catch {
-    logger.verbose('Something went wrong while fetching feed, returning null!');
+    logger.verbose("Something went wrong while fetching feed, returning null!");
     return null;
   }
 };

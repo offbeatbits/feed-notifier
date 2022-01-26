@@ -1,4 +1,4 @@
-import Parser from 'rss-parser';
+import Parser from "rss-parser";
 
 interface FeedItem {
   title: string;
@@ -22,11 +22,11 @@ export class Feed {
   }
 
   async fetch() {
-    const feedContent = await new Parser({
+    const feedContent = (await new Parser({
       customFields: {
-        feed: ['lastBuildDate'],
+        feed: ["lastBuildDate"],
       },
-    }).parseURL(this.url) as FeedContent;
+    }).parseURL(this.url)) as FeedContent;
     this.content = feedContent;
     return this as Feed;
   }

@@ -1,1 +1,1 @@
-export * from './fetchFeed';
+export * from "./fetchFeed";

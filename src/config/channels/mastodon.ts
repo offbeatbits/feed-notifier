@@ -1,5 +1,5 @@
-import { boolean } from '../../utils';
-import { MastodonSettings } from '../../types';
+import { boolean } from "../../utils";
+import { MastodonSettings } from "../../types";
 
 const { env } = process;
 

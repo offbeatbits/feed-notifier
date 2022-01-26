@@ -1,17 +1,14 @@
 /* eslint-disable class-methods-use-this */
-import { TwitterClient } from 'twitter-api-client';
-import { OAuth2Service } from '../models';
-import { TwitterServiceSettings } from '../types';
+import { TwitterClient } from "twitter-api-client";
+import { OAuth2Service } from "../models";
+import { TwitterServiceSettings } from "../types";
 
 export class TwitterService extends OAuth2Service {
   username: string;
 
   private twitterClient: TwitterClient;
 
-  constructor({
-    username,
-    settings,
-  }: TwitterServiceSettings) {
+  constructor({ username, settings }: TwitterServiceSettings) {
     super(settings);
     this.username = username;
     this.twitterClient = new TwitterClient({

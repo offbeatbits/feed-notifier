@@ -1,9 +1,9 @@
-import { logger } from '../../lib/logger';
-import { ArticleObject } from '../../types';
+import { logger } from "../../lib/logger";
+import { ArticleObject } from "../../types";
 
 const areStringsDifferent = (
   someString: string | null | undefined,
-  otherString: string | null | undefined,
+  otherString: string | null | undefined
 ) => {
   if (someString && otherString) {
     return someString.localeCompare(otherString) !== 0;
@@ -13,11 +13,13 @@ const areStringsDifferent = (
 
 const areDatesDifferent = (
   oldDate: string | null | undefined,
-  newDate: string | null | undefined,
+  newDate: string | null | undefined
 ) => {
   if (oldDate && newDate) {
-    return new Date(oldDate!).getTime() !== new Date(newDate).getTime()
-      || Boolean(oldDate);
+    return (
+      new Date(oldDate!).getTime() !== new Date(newDate).getTime() ||
+      Boolean(oldDate)
+    );
   }
   return false;
 };
@@ -38,40 +40,38 @@ export const areArticlesDifferent = ({
     return true;
   }
 
-  logger.verbose('Comparing articles...');
+  logger.verbose("Comparing articles...");
 
   const titleIsDifferent = areStringsDifferent(
     oldArticle?.title,
-    newArticle?.title,
+    newArticle?.title
   );
 
   logger.verbose(`Article title is different: ${titleIsDifferent}`);
 
-  const urlIsDifferent = areStringsDifferent(
-    oldArticle?.url,
-    newArticle?.url,
-  );
+  const urlIsDifferent = areStringsDifferent(oldArticle?.url, newArticle?.url);
 
   logger.verbose(`Article URL is different: ${urlIsDifferent}`);
 
   const articleDateIsLater = areDatesDifferent(
     oldArticle?.date,
-    newArticle?.date,
+    newArticle?.date
   );
 
   logger.verbose(`Article date is later: ${articleDateIsLater}`);
 
   const feedUpdateDateIsLater = areDatesDifferent(
     oldArticle?.feedUpdateDate,
-    newArticle?.feedUpdateDate,
+    newArticle?.feedUpdateDate
   );
 
   logger.verbose(`Feed build date is later: ${feedUpdateDateIsLater}`);
 
-  const result = titleIsDifferent
-    && urlIsDifferent
-    && articleDateIsLater
-    && feedUpdateDateIsLater;
+  const result =
+    titleIsDifferent &&
+    urlIsDifferent &&
+    articleDateIsLater &&
+    feedUpdateDateIsLater;
 
   logger.verbose(`Articles are different: ${result}`);
 

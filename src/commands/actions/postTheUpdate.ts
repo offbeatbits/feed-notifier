@@ -1,15 +1,12 @@
-import { logger } from '../../lib';
+import { logger } from "../../lib";
 
-import {
-  updateAllChannels,
-  updateSingleChannel,
-} from '../update';
+import { updateAllChannels, updateSingleChannel } from "../update";
 
 import {
   ChannelConfig,
   OAuth2ServiceSettings,
   ChannelSettings,
-} from '../../types';
+} from "../../types";
 
 interface UpdateParams {
   channels: ChannelConfig<ChannelSettings>;
@@ -17,12 +14,8 @@ interface UpdateParams {
   content: string;
 }
 
-export const postTheUpdate = ({
-  channels,
-  clients,
-  content,
-}: UpdateParams) => {
-  logger.verbose('Posting on channels...');
+export const postTheUpdate = ({ channels, clients, content }: UpdateParams) => {
+  logger.verbose("Posting on channels...");
 
   updateAllChannels({
     channels,
