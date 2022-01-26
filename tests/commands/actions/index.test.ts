@@ -1,7 +1,7 @@
-import * as index from '../../../src/commands/actions';
+import * as index from "../../../src/commands/actions";
 
-describe('Actions index', () => {
-  it('should be defined', () => {
+describe("Actions index", () => {
+  it("should be defined", () => {
     expect(index).toBeDefined();
   });
 });

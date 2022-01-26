@@ -1,25 +1,25 @@
-import mock from 'mock-fs';
+import mock from "mock-fs";
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-import { Cache } from '../../src/lib/cache';
+import { Cache } from "../../src/lib/cache";
 
 const mockFs = (structure?: any) => mock(structure);
 
-describe('Cache', () => {
-  it('should implement get method', () => {
+describe("Cache", () => {
+  it("should implement get method", () => {
     expect(Cache.get).toBeDefined();
   });
 
-  it('should implement set method', () => {
+  it("should implement set method", () => {
     expect(Cache.set).toBeDefined();
   });
 
-  it('should cache value', () => {
+  it("should cache value", () => {
     mockFs();
 
-    const key = 'foo1';
+    const key = "foo1";
 
     const value = {
-      bar1: 'baz1',
+      bar1: "baz1",
     };
 
     Cache.set(key, value);
@@ -28,16 +28,16 @@ describe('Cache', () => {
     mock.restore();
   });
 
-  it('should not create cache directory if it exists', () => {
+  it("should not create cache directory if it exists", () => {
     const cacheDir = process.env.FN_CACHE_DIRECTORY!;
     mockFs({
       [cacheDir]: {},
     });
 
-    const key = 'foo2';
+    const key = "foo2";
 
     const value = {
-      bar2: 'baz2',
+      bar2: "baz2",
     };
 
     Cache.set(key, value);
@@ -46,10 +46,10 @@ describe('Cache', () => {
     mock.restore();
   });
 
-  it('should return empty string if cache file is not present', () => {
+  it("should return empty string if cache file is not present", () => {
     mockFs();
 
-    expect(Cache.get('bar3')).toBe('');
+    expect(Cache.get("bar3")).toBe("");
     mock.restore();
   });
 });

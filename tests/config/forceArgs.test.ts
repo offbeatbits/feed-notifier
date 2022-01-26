@@ -1,7 +1,7 @@
-import { forceArgs } from '../../src/config/forceArgs';
+import { forceArgs } from "../../src/config/forceArgs";
 
-describe('Force args', () => {
-  it('should export array of force arguments', () => {
+describe("Force args", () => {
+  it("should export array of force arguments", () => {
     expect(forceArgs).toMatchSnapshot();
   });
 });

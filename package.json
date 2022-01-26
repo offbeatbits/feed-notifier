@@ -7,7 +7,7 @@
   "scripts": {
     "start": "NODE_ENV=development node dist/index.js",
     "start:nodotenv": "node dist/index.js",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --forceExit",
     "clearTestCache": "jest --clearCache",
     "clean": "rimraf dist/*",

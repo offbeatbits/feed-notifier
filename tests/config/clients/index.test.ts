@@ -1,7 +1,7 @@
-import * as index from '../../../src/config/clients';
+import * as index from "../../../src/config/clients";
 
-describe('Index', () => {
-  it('should be defined', () => {
+describe("Index", () => {
+  it("should be defined", () => {
     expect(index).toBeDefined();
   });
 });

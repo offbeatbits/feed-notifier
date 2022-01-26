@@ -1,7 +1,7 @@
-import * as index from '../../src/commands/index';
+import * as index from "../../src/commands/index";
 
-describe('Commentds', () => {
-  it('should be defined', () => {
+describe("Commentds", () => {
+  it("should be defined", () => {
     expect(index).toBeDefined();
   });
 });
