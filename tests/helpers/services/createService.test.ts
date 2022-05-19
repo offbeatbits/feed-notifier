@@ -30,10 +30,10 @@ describe("createService", () => {
 
   services.forEach((service) => {
     it(`should create ${service.type} service`, () => {
-      expect(
+      expect(() =>
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         createService(service.type as any, service.settings as any)
-      ).toMatchSnapshot();
+      ).not.toThrow();
     });
   });
 });
